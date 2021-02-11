@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Ketchup: NSObject {
+class KetchupModel: NSObject {
     
     var name: String
     var sessionTime: Int

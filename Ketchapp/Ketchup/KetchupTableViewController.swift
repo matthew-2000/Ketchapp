@@ -9,15 +9,17 @@ import UIKit
 
 class KetchupTableViewController: UITableViewController {
     
-    var ketchupList: [Ketchup]!
+    var ketchupList: [KetchupModel]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ketchupList = [Ketchup]()
-        ketchupList.append(Ketchup(name: "Ketchup 1", sessionTime: 25, breakTime: 5))
-        ketchupList.append(Ketchup(name: "Ketchup 2", sessionTime: 25, breakTime: 5))
-        ketchupList.append(Ketchup(name: "Ketchup 3", sessionTime: 25, breakTime: 5))
+        ketchupList = [KetchupModel]()
+        let ketchupListPersistent = PersistenceManager.fetchKetchup()
+        
+        for k in ketchupListPersistent {
+            ketchupList.append(KetchupModel(name: k.name!, sessionTime: Int(k.sessionTime), breakTime: Int(k.breakTime)))
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,12 +29,17 @@ class KetchupTableViewController: UITableViewController {
     }
 
     @IBAction func addNewKetchup(_ sender: Any) {
-        ketchupList.append(Ketchup(name: "New Ketchup", sessionTime: 25, breakTime: 5))
+        ketchupList.append(KetchupModel(name: "New Ketchup", sessionTime: 25, breakTime: 5))
         let index = IndexPath(row: ketchupList.count - 1, section: 0)
         tableView.insertRows(at: [index], with: .automatic)
     }
     
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let k = ketchupList[indexPath.row]
+        PersistenceManager.insertKetchup(ketchup: k)
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -68,9 +75,7 @@ class KetchupTableViewController: UITableViewController {
             // Delete the row from the data source
             ketchupList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
     // Override to support rearranging the table view.
