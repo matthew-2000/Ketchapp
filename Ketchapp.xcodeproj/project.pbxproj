@@ -23,7 +23,6 @@
 		3B6D602025D2DE1C00D7E997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6D601E25D2DE1C00D7E997 /* LaunchScreen.storyboard */; };
 		3BDB6CA325D69BB40059B821 /* DetailsKetchupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CA225D69BB40059B821 /* DetailsKetchupTableViewController.swift */; };
 		3BDB6CA725D6A0F90059B821 /* NameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CA625D6A0F90059B821 /* NameTableViewCell.swift */; };
-		3BDB6CAB25D6A1070059B821 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CAA25D6A1070059B821 /* TimerTableViewCell.swift */; };
 		3BDB6CAE25D6A1140059B821 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CAD25D6A1140059B821 /* TaskTableViewCell.swift */; };
 		3BDB6CB125D6D74E0059B821 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CB025D6D74E0059B821 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +46,6 @@
 		3B6D602125D2DE1C00D7E997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BDB6CA225D69BB40059B821 /* DetailsKetchupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsKetchupTableViewController.swift; sourceTree = "<group>"; };
 		3BDB6CA625D6A0F90059B821 /* NameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTableViewCell.swift; sourceTree = "<group>"; };
-		3BDB6CAA25D6A1070059B821 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
 		3BDB6CAD25D6A1140059B821 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		3BDB6CB025D6D74E0059B821 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				3BDB6CA625D6A0F90059B821 /* NameTableViewCell.swift */,
-				3BDB6CAA25D6A1070059B821 /* TimerTableViewCell.swift */,
 				3BDB6CAD25D6A1140059B821 /* TaskTableViewCell.swift */,
 			);
 			path = "Detail cell";
@@ -213,7 +210,6 @@
 				3BDB6CA325D69BB40059B821 /* DetailsKetchupTableViewController.swift in Sources */,
 				3B1BEB7325D5B3B5000E0D43 /* Ketchup+CoreDataClass.swift in Sources */,
 				3B1BEB7825D5B5AC000E0D43 /* PersistenceManager.swift in Sources */,
-				3BDB6CAB25D6A1070059B821 /* TimerTableViewCell.swift in Sources */,
 				3B1BEB7425D5B3B5000E0D43 /* Ketchup+CoreDataProperties.swift in Sources */,
 				3B6D601325D2DE1B00D7E997 /* SceneDelegate.swift in Sources */,
 			);

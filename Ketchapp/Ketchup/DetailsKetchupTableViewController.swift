@@ -55,13 +55,13 @@ class DetailsKetchupTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        let timerViewController = segue.destination as! TimerViewController
-
         switch segue.identifier {
         case "sessionSegue":
+            let timerViewController = segue.destination as! TimerViewController
             timerViewController.timerId = "sessionID"
             
         case "breakSegue":
+            let timerViewController = segue.destination as! TimerViewController
             timerViewController.timerId = "breakID"
             
         default:
