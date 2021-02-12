@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KetchupViewController: UIViewController {
+class KetchupViewController: UIViewController, UITextFieldDelegate {
     
     var ketchup: KetchupModel?
 
@@ -17,6 +17,13 @@ class KetchupViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = ketchup?.name
         
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        ketchup?.name = textField.text!
+        
+        self.title = ketchup?.name
     }
     
 

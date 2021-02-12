@@ -14,7 +14,7 @@ class DetailsKetchupTableViewController: UITableViewController {
 
         //Looks for single or multiple taps.
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
         // Uncomment the following line to preserve selection between presentations
@@ -23,13 +23,18 @@ class DetailsKetchupTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
-
+    
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! NameTableViewCell
+        cell.nameTextField.delegate = self.parent as? UITextFieldDelegate
+    }
+
+    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
