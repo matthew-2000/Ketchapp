@@ -157,49 +157,57 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Pomodoro timers" id="7xR-6D-fUe">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="Go6-40-JNA">
-                                        <rect key="frame" x="20" y="155" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="Go6-40-JNA" customClass="TimerTableViewCell" customModule="Ketchapp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="155" width="374" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Go6-40-JNA" id="EjC-pI-HPX">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpK-kk-GWv">
-                                                    <rect key="frame" x="20" y="24.5" width="202" height="21"/>
+                                                    <rect key="frame" x="20" y="39.5" width="249" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0m-dm-E2K">
-                                                    <rect key="frame" x="242" y="11" width="112" height="48"/>
+                                                    <rect key="frame" x="289" y="11" width="65" height="78"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="65" id="QhS-1K-zBn"/>
+                                                    </constraints>
                                                 </pickerView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="t0m-dm-E2K" secondAttribute="trailing" constant="20" id="0PD-8Y-WpE"/>
                                                 <constraint firstItem="EpK-kk-GWv" firstAttribute="leading" secondItem="EjC-pI-HPX" secondAttribute="leading" constant="20" id="2kP-MV-PyA"/>
                                                 <constraint firstItem="t0m-dm-E2K" firstAttribute="bottom" secondItem="EjC-pI-HPX" secondAttribute="bottomMargin" id="JJH-Nd-8oT"/>
-                                                <constraint firstItem="t0m-dm-E2K" firstAttribute="width" secondItem="EjC-pI-HPX" secondAttribute="width" multiplier="0.3" id="L7X-yY-Gjp"/>
                                                 <constraint firstItem="t0m-dm-E2K" firstAttribute="top" secondItem="EjC-pI-HPX" secondAttribute="topMargin" id="c9V-DD-YfG"/>
                                                 <constraint firstItem="EpK-kk-GWv" firstAttribute="centerY" secondItem="EjC-pI-HPX" secondAttribute="centerY" id="hz2-P9-ocB"/>
                                                 <constraint firstItem="t0m-dm-E2K" firstAttribute="leading" secondItem="EpK-kk-GWv" secondAttribute="trailing" constant="20" id="iiV-Qr-yU7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="sessionTimePicker" destination="t0m-dm-E2K" id="nxc-Mc-x8O"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="BXD-VS-9IK">
-                                        <rect key="frame" x="20" y="225" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="BXD-VS-9IK" customClass="TimerTableViewCell" customModule="Ketchapp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="255" width="374" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BXD-VS-9IK" id="OW2-k9-zFK">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Break time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="US6-51-RSc">
-                                                    <rect key="frame" x="20" y="24.5" width="202" height="21"/>
+                                                    <rect key="frame" x="20" y="39.5" width="249" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOB-Rj-aNx">
-                                                    <rect key="frame" x="242" y="11" width="112" height="48"/>
+                                                    <rect key="frame" x="289" y="11" width="65" height="78"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="65" id="YPi-5C-nv2"/>
+                                                    </constraints>
                                                 </pickerView>
                                             </subviews>
                                             <constraints>
@@ -209,16 +217,18 @@
                                                 <constraint firstItem="JOB-Rj-aNx" firstAttribute="bottom" secondItem="OW2-k9-zFK" secondAttribute="bottomMargin" id="US7-Hh-vTR"/>
                                                 <constraint firstAttribute="trailing" secondItem="JOB-Rj-aNx" secondAttribute="trailing" constant="20" id="UYE-dx-bmH"/>
                                                 <constraint firstItem="US6-51-RSc" firstAttribute="centerY" secondItem="OW2-k9-zFK" secondAttribute="centerY" id="kYT-Lw-PxD"/>
-                                                <constraint firstItem="JOB-Rj-aNx" firstAttribute="width" secondItem="OW2-k9-zFK" secondAttribute="width" multiplier="0.3" id="yWf-lW-b6O"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="sessionTimePicker" destination="t0m-dm-E2K" id="qXX-i5-XaV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Tasks" id="83u-ki-6e6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="330" id="un7-WA-irJ">
-                                        <rect key="frame" x="20" y="351" width="374" height="330"/>
+                                        <rect key="frame" x="20" y="411" width="374" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="un7-WA-irJ" id="Ye3-CD-gdK">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="330"/>
