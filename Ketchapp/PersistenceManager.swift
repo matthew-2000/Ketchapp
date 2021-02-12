@@ -32,6 +32,16 @@ class PersistenceManager {
         ketchupToSet.taskList = [String]()
         ketchupToSet.date = nil
         
+        do {
+
+            try context.save()
+
+        } catch let error as NSError {
+
+            print("Error while save context: \(error)")
+
+        }
+        
     }
     
     static func fetchKetchup() -> [Ketchup] {
