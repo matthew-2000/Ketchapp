@@ -27,19 +27,8 @@ class KetchupTableViewController: UITableViewController {
         //display an Edit button in the navigation bar for this view controller
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
-
-    @IBAction func addNewKetchup(_ sender: Any) {
-        ketchupList.append(KetchupModel(name: "New Ketchup", sessionTime: 25, breakTime: 5))
-        let index = IndexPath(row: ketchupList.count - 1, section: 0)
-        tableView.insertRows(at: [index], with: .automatic)
-    }
     
     // MARK: - Table view data source
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let k = ketchupList[indexPath.row]
-        PersistenceManager.insertKetchup(ketchup: k)
-    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -92,14 +81,35 @@ class KetchupTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        switch segue.identifier {
+        case "newKetchup":
+            //create new ketchup
+            ketchupList.append(KetchupModel(name: "New Ketchup", sessionTime: 25, breakTime: 5))
+            let index = IndexPath(row: ketchupList.count - 1, section: 0)
+            tableView.insertRows(at: [index], with: .automatic)
+            let vc = segue.destination as! KetchupViewController
+            vc.ketchup = ketchupList.last
+            
+        case "showKetchup":
+            //show selected ketchup
+            if let index = tableView.indexPathForSelectedRow?.row {
+                
+                let vc = segue.destination as! KetchupViewController
+                vc.ketchup = ketchupList[index]
+                
+            }
+            
+        default:
+            return
+        }
+        
     }
-    */
 
 }
