@@ -25,6 +25,7 @@
 		3BDB6CA725D6A0F90059B821 /* NameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CA625D6A0F90059B821 /* NameTableViewCell.swift */; };
 		3BDB6CAB25D6A1070059B821 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CAA25D6A1070059B821 /* TimerTableViewCell.swift */; };
 		3BDB6CAE25D6A1140059B821 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CAD25D6A1140059B821 /* TaskTableViewCell.swift */; };
+		3BDB6CB125D6D74E0059B821 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CB025D6D74E0059B821 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		3BDB6CA625D6A0F90059B821 /* NameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTableViewCell.swift; sourceTree = "<group>"; };
 		3BDB6CAA25D6A1070059B821 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
 		3BDB6CAD25D6A1140059B821 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		3BDB6CB025D6D74E0059B821 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				3B1BEB7A25D5B6F4000E0D43 /* KetchupModel.swift */,
 				3B4573AE25D685CA007D5D9F /* KetchupViewController.swift */,
 				3BDB6CA225D69BB40059B821 /* DetailsKetchupTableViewController.swift */,
+				3BDB6CB025D6D74E0059B821 /* TimerViewController.swift */,
 			);
 			path = Ketchup;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				3B1BEB6025D59FCF000E0D43 /* KetchupTableViewController.swift in Sources */,
 				3BDB6CAE25D6A1140059B821 /* TaskTableViewCell.swift in Sources */,
 				3B1BEB6325D5A0F3000E0D43 /* CompletedTableViewController.swift in Sources */,
+				3BDB6CB125D6D74E0059B821 /* TimerViewController.swift in Sources */,
 				3BDB6CA725D6A0F90059B821 /* NameTableViewCell.swift in Sources */,
 				3B6D601B25D2DE1B00D7E997 /* Ketchapp.xcdatamodeld in Sources */,
 				3B6D601125D2DE1B00D7E997 /* AppDelegate.swift in Sources */,
