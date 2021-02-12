@@ -12,6 +12,11 @@ class DetailsKetchupTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Looks for single or multiple taps.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        view.addGestureRecognizer(tap)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -21,6 +26,11 @@ class DetailsKetchupTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
