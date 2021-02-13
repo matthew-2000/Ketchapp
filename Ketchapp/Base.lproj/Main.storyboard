@@ -85,7 +85,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQz-Mh-bT6">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="655"/>
                                         <connections>
-                                            <segue destination="OXj-Ia-i01" kind="embed" identifier="TableID" id="bxl-9o-D92"/>
+                                            <segue destination="OXj-Ia-i01" kind="embed" identifier="tableSegue" id="bxl-9o-D92"/>
                                         </connections>
                                     </containerView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pCE-2g-mbn">
@@ -244,7 +244,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BhA-Px-vde" kind="show" id="jVm-fd-6E0"/>
+                                            <segue destination="BhA-Px-vde" kind="show" identifier="taskSegue" id="jVm-fd-6E0"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -264,18 +264,27 @@
         <!--Tasks-->
         <scene sceneID="Zt3-WU-15h">
             <objects>
-                <tableViewController id="BhA-Px-vde" sceneMemberID="viewController">
+                <tableViewController id="BhA-Px-vde" customClass="TasksTableViewController" customModule="Ketchapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tj2-j1-s03">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="601"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Fl4-Jp-ggo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCellID" textLabel="PA0-zK-Pdl" style="IBUITableViewCellStyleDefault" id="Fl4-Jp-ggo">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fl4-Jp-ggo" id="twL-4k-XbZ">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PA0-zK-Pdl">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -284,7 +293,17 @@
                             <outlet property="delegate" destination="BhA-Px-vde" id="NwI-dL-FzO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tasks" id="HAZ-Rz-iGz"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Tasks" id="HAZ-Rz-iGz">
+                        <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="JKX-jf-5xK">
+                            <connections>
+                                <action selector="addTask:" destination="BhA-Px-vde" id="ErP-VJ-pKo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="JKX-jf-5xK" id="FwA-Jg-KRg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7q-Mg-U1F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

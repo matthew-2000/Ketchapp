@@ -8,6 +8,8 @@
 import UIKit
 
 class DetailsKetchupTableViewController: UITableViewController {
+    
+    var ketchup: KetchupModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +32,23 @@ class DetailsKetchupTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! NameTableViewCell
-        cell.nameTextField.delegate = self.parent as? UITextFieldDelegate
+        
+        //set name cell
+        let nameCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! NameTableViewCell
+        nameCell.nameTextField.delegate = self.parent as? UITextFieldDelegate
+        
+        //set session time cell
+        let sessionTimerCell = tableView.cellForRow(at: IndexPath(row: 0, section: 1))
+        sessionTimerCell?.detailTextLabel?.text = String(ketchup!.sessionTime) + " min"
+        
+        //set break time cell
+        let breakTimerCell = tableView.cellForRow(at: IndexPath(row: 1, section: 1))
+        breakTimerCell?.detailTextLabel?.text = String(ketchup!.breakTime)  + " min"
+
+        //set list tasks cell
+        let taskListCell = tableView.cellForRow(at: IndexPath(row: 0, section: 2))
+        taskListCell?.detailTextLabel?.text = String(ketchup!.getTaskCount())
+        
     }
 
     // MARK: - Table view data source
@@ -73,11 +90,17 @@ class DetailsKetchupTableViewController: UITableViewController {
         switch segue.identifier {
         case "sessionSegue":
             let timerViewController = segue.destination as! TimerViewController
+            timerViewController.ketchup = ketchup
             timerViewController.timerId = "sessionID"
             
         case "breakSegue":
             let timerViewController = segue.destination as! TimerViewController
+            timerViewController.ketchup = ketchup
             timerViewController.timerId = "breakID"
+            
+        case "taskSegue":
+            let taskVC = segue.destination as! TasksTableViewController
+            taskVC.ketchup = ketchup
             
         default:
             return

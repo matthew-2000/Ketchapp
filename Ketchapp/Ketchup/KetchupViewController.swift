@@ -34,6 +34,15 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
+        switch segue.identifier {
+        case "tableSegue":
+            let tableVC = segue.destination as! DetailsKetchupTableViewController
+            tableVC.ketchup = ketchup
+            
+        default:
+            return
+        }
+        
     }
 
 }

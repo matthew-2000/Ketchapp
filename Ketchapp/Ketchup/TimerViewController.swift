@@ -11,6 +11,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var timerPicker: UIPickerView!
     var timerId: String!
+    var ketchup: KetchupModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,37 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             return ""
         }
         
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch timerId {
+        case "sessionID":
+            switch row {
+            case 0:
+                ketchup?.sessionTime = 20
+            case 1:
+                ketchup?.sessionTime = 25
+            case 2:
+                ketchup?.sessionTime = 30
+            default:
+                return
+            }
+        
+        case "breakID":
+            switch row {
+            case 0:
+                ketchup?.breakTime = 3
+            case 1:
+                ketchup?.breakTime = 4
+            case 2:
+                ketchup?.breakTime = 5
+            default:
+                return
+            }
+            
+        default:
+            return
+        }
     }
 
     /*
