@@ -37,6 +37,13 @@ class DetailsKetchupTableViewController: UITableViewController {
         let nameCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! NameTableViewCell
         nameCell.nameTextField.delegate = self.parent as? UITextFieldDelegate
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // set name cell
+        let nameCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! NameTableViewCell
         if let text = ketchup?.name {
             nameCell.nameTextField.text = text
         }
@@ -52,7 +59,6 @@ class DetailsKetchupTableViewController: UITableViewController {
         //set list tasks cell
         let taskListCell = tableView.cellForRow(at: IndexPath(row: 0, section: 2))
         taskListCell?.detailTextLabel?.text = String(ketchup!.getTaskCount())
-        
     }
 
     // MARK: - Table view data source
