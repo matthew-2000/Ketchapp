@@ -80,4 +80,18 @@ class PersistenceManager {
         saveContext()
     }
     
+    static func deleteItem(withName name: String?) {
+        let context = getContext()
+        
+        let ketchupList = fetchKetchup()
+        for ketchup in ketchupList {
+            if ketchup.name == name {
+                context.delete(ketchup)
+                break
+            }
+        }
+        
+        saveContext()
+    }
+    
 }

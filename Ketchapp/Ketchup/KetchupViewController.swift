@@ -10,13 +10,14 @@ import UIKit
 class KetchupViewController: UIViewController, UITextFieldDelegate {
     
     var ketchup: KetchupModel?
+    var oldName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.title = ketchup?.name
-        
+        oldName = ketchup?.name
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -26,7 +27,8 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveKetchupClick(_ sender: Any) {
         view.endEditing(true)
-        PersistenceManager.deleteItem(item: ketchup!)
+        
+        PersistenceManager.deleteItem(withName: oldName)
         PersistenceManager.insertKetchup(ketchup: ketchup!)
         self.dismiss(animated: true, completion: nil)
     }
