@@ -24,7 +24,7 @@ class TasksTableViewController: UITableViewController {
     
     @IBAction func addTask(_ sender: Any) {
         //Create the alert controller.
-        let alert = UIAlertController(title: "New task", message: "Enter task name:", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Task", message: "Enter the task name:", preferredStyle: .alert)
 
         //Add the text field
         alert.addTextField { (textField) in

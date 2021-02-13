@@ -37,6 +37,10 @@ class DetailsKetchupTableViewController: UITableViewController {
         let nameCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! NameTableViewCell
         nameCell.nameTextField.delegate = self.parent as? UITextFieldDelegate
         
+        if let text = ketchup?.name {
+            nameCell.nameTextField.text = text
+        }
+        
         //set session time cell
         let sessionTimerCell = tableView.cellForRow(at: IndexPath(row: 0, section: 1))
         sessionTimerCell?.detailTextLabel?.text = String(ketchup!.sessionTime) + " min"

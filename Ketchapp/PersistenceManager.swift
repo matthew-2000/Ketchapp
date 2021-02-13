@@ -20,6 +20,15 @@ class PersistenceManager {
         
     }
     
+    static func saveContext() {
+        let context = getContext()
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Error in saving context: \(error.code)")
+        }
+    }
+    
     static func insertKetchup(ketchup: KetchupModel) {
         
         let context = getContext()
@@ -32,15 +41,7 @@ class PersistenceManager {
         ketchupToSet.taskList = ketchup.taskList
         ketchupToSet.date = nil
         
-        do {
-
-            try context.save()
-
-        } catch let error as NSError {
-
-            print("Error while save context: \(error)")
-
-        }
+        saveContext()
         
     }
     
@@ -63,6 +64,20 @@ class PersistenceManager {
         
         return ketchupList
         
+    }
+    
+    static func deleteItem(item: KetchupModel) {
+        let context = getContext()
+        
+        let ketchupList = fetchKetchup()
+        for ketchup in ketchupList {
+            if ketchup.name == item.name {
+                context.delete(ketchup)
+                break
+            }
+        }
+        
+        saveContext()
     }
     
 }

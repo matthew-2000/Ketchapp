@@ -20,13 +20,13 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         ketchup?.name = textField.text!
-        
         self.title = ketchup?.name
     }
     
     @IBAction func saveKetchupClick(_ sender: Any) {
+        view.endEditing(true)
+        PersistenceManager.deleteItem(item: ketchup!)
         PersistenceManager.insertKetchup(ketchup: ketchup!)
         self.dismiss(animated: true, completion: nil)
     }
@@ -42,7 +42,6 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
         case "tableSegue":
             let tableVC = segue.destination as! DetailsKetchupTableViewController
             tableVC.ketchup = ketchup
-            
         default:
             return
         }

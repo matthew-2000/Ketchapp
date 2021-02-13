@@ -15,11 +15,11 @@ class KetchupModel: NSObject {
     var taskList: [String]
     var date: Date?
     
-    init(name: String, sessionTime: Int, breakTime: Int) {
+    init(name: String, sessionTime: Int, breakTime: Int, taskList: [String]) {
         self.name = name
         self.sessionTime = sessionTime
         self.breakTime = breakTime
-        self.taskList = [String]()
+        self.taskList = taskList
     }
     
     func addTask(task: String) {

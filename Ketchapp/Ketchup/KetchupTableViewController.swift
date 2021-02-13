@@ -24,7 +24,7 @@ class KetchupTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         ketchupList.removeAll()
         getFromCoreData()
         tableView.reloadData()
@@ -35,7 +35,7 @@ class KetchupTableViewController: UITableViewController {
         let ketchupListPersistent = PersistenceManager.fetchKetchup()
         
         for k in ketchupListPersistent {
-            ketchupList.append(KetchupModel(name: k.name!, sessionTime: Int(k.sessionTime), breakTime: Int(k.breakTime)))
+            ketchupList.append(KetchupModel(name: k.name!, sessionTime: Int(k.sessionTime), breakTime: Int(k.breakTime), taskList: k.taskList!))
         }
         
     }
@@ -74,6 +74,7 @@ class KetchupTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            PersistenceManager.deleteItem(item: ketchupList[indexPath.row])
             ketchupList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -103,7 +104,7 @@ class KetchupTableViewController: UITableViewController {
         switch segue.identifier {
         case "newKetchup":
             //create new ketchup
-            ketchupList.append(KetchupModel(name: "New Ketchup", sessionTime: 25, breakTime: 5))
+            ketchupList.append(KetchupModel(name: "New Ketchup", sessionTime: 25, breakTime: 5, taskList: [String]()))
             let index = IndexPath(row: ketchupList.count - 1, section: 0)
             tableView.insertRows(at: [index], with: .automatic)
             let vc = segue.destination as! KetchupViewController
@@ -112,10 +113,8 @@ class KetchupTableViewController: UITableViewController {
         case "showKetchup":
             //show selected ketchup
             if let index = tableView.indexPathForSelectedRow?.row {
-                
                 let vc = segue.destination as! KetchupViewController
                 vc.ketchup = ketchupList[index]
-                
             }
             
         default:

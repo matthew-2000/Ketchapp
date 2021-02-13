@@ -19,10 +19,23 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // Do any additional setup after loading the view.
         timerPicker.delegate = self
         timerPicker.dataSource = self
-        timerPicker.selectRow(1, inComponent: 0, animated: true)
         
         self.title = timerId == "sessionID" ? "Session timer" : "Break timer"
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let time = timerId == "sessionID" ? ketchup?.sessionTime : ketchup?.breakTime
+        switch time {
+        case 3, 20:
+            timerPicker.selectRow(0, inComponent: 0, animated: true)
+        case 4, 25:
+            timerPicker.selectRow(1, inComponent: 0, animated: true)
+        case 5, 30:
+            timerPicker.selectRow(2, inComponent: 0, animated: true)
+        default:
+            print(#function)
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
