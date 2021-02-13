@@ -15,11 +15,7 @@ class KetchupTableViewController: UITableViewController {
         super.viewDidLoad()
         
         ketchupList = [KetchupModel]()
-        let ketchupListPersistent = PersistenceManager.fetchKetchup()
-        
-        for k in ketchupListPersistent {
-            ketchupList.append(KetchupModel(name: k.name!, sessionTime: Int(k.sessionTime), breakTime: Int(k.breakTime)))
-        }
+        getFromCoreData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,8 +24,20 @@ class KetchupTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        ketchupList.removeAll()
+        getFromCoreData()
         tableView.reloadData()
+    }
+    
+    func getFromCoreData() {
+        
+        let ketchupListPersistent = PersistenceManager.fetchKetchup()
+        
+        for k in ketchupListPersistent {
+            ketchupList.append(KetchupModel(name: k.name!, sessionTime: Int(k.sessionTime), breakTime: Int(k.breakTime)))
+        }
+        
     }
     
     // MARK: - Table view data source

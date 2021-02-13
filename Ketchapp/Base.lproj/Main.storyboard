@@ -88,15 +88,11 @@
                                             <segue destination="OXj-Ia-i01" kind="embed" identifier="tableSegue" id="bxl-9o-D92"/>
                                         </connections>
                                     </containerView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pCE-2g-mbn">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="pCE-2g-mbn">
                                         <rect key="frame" x="0.0" y="675" width="414" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYn-wu-53Q">
-                                                <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
-                                                <state key="normal" title="Save for later"/>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aR-jD-kU1">
-                                                <rect key="frame" x="217" y="0.0" width="197" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                                 <state key="normal" title="Start now"/>
                                             </button>
                                         </subviews>
@@ -114,7 +110,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oio-hp-oE0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aOd-wc-qf3"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aOd-wc-qf3">
+                            <connections>
+                                <action selector="saveKetchupClick:" destination="Qga-Ps-jSE" id="ehO-0Y-Cdi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGP-TR-kG6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

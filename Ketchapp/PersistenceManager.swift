@@ -29,7 +29,7 @@ class PersistenceManager {
         ketchupToSet.name = ketchup.name
         ketchupToSet.sessionTime = Int16(ketchup.sessionTime)
         ketchupToSet.breakTime = Int16(ketchup.breakTime)
-        ketchupToSet.taskList = [String]()
+        ketchupToSet.taskList = ketchup.taskList
         ketchupToSet.date = nil
         
         do {

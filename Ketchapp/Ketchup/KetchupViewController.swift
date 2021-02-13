@@ -26,6 +26,10 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
         self.title = ketchup?.name
     }
     
+    @IBAction func saveKetchupClick(_ sender: Any) {
+        PersistenceManager.insertKetchup(ketchup: ketchup!)
+        self.dismiss(animated: true, completion: nil)
+    }
 
     // MARK: - Navigation
 
