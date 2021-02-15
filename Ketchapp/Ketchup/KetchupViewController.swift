@@ -30,7 +30,7 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
         
         PersistenceManager.deleteItem(withName: oldName)
         PersistenceManager.insertKetchup(ketchup: ketchup!)
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Navigation

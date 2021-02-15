@@ -359,13 +359,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 389P4Y2XK7;
+				DEVELOPMENT_TEAM = 9TKWBWAX75;
 				INFOPLIST_FILE = Ketchapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.applefoundationprogram.napster.KetchApp;
+				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.applefoundationprogram.Ketchapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

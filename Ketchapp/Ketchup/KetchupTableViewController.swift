@@ -43,12 +43,10 @@ class KetchupTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return ketchupList.count
     }
 
@@ -80,11 +78,13 @@ class KetchupTableViewController: UITableViewController {
         }
     }
     
+    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let ketchup = ketchupList.remove(at: fromIndexPath.row)
         ketchupList.insert(ketchup, at: to.row)
     }
+    */
 
     /*
     // Override to support conditional rearranging of the table view.
