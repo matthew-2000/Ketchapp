@@ -14,6 +14,18 @@ class KetchupTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set UserDefaults if this is first open
+        
+        let userDefaults = UserDefaults.standard
+        if !userDefaults.bool(forKey: "alreadyOpenApp") {
+            //first open
+            userDefaults.setValue(true, forKey: "alreadyOpenApp")
+            userDefaults.setValue(25, forKey: "sessionTime")
+            userDefaults.setValue(5, forKey: "sessionTime")
+        }
+        
+        //finish setting UserDefaults
+        
         ketchupList = [KetchupModel]()
         getFromCoreData()
 
