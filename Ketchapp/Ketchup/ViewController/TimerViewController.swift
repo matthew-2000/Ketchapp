@@ -20,21 +20,39 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         timerPicker.delegate = self
         timerPicker.dataSource = self
         
-        self.title = timerId == "sessionID" ? "Session timer" : "Break timer"
+        self.title = (timerId == "sessionID" || timerId == "sessionDefaultsID") ? "Session timer" : "Break timer"
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let time = timerId == "sessionID" ? ketchup?.sessionTime : ketchup?.breakTime
-        switch time {
-        case 3, 20:
-            timerPicker.selectRow(0, inComponent: 0, animated: true)
-        case 4, 25:
-            timerPicker.selectRow(1, inComponent: 0, animated: true)
-        case 5, 30:
-            timerPicker.selectRow(2, inComponent: 0, animated: true)
-        default:
-            print(#function)
+        if timerId == "sessionID" || timerId == "breakID" {
+            
+            let time = timerId == "sessionID" ? ketchup?.sessionTime : ketchup?.breakTime
+            switch time {
+            case 3, 20:
+                timerPicker.selectRow(0, inComponent: 0, animated: true)
+            case 4, 25:
+                timerPicker.selectRow(1, inComponent: 0, animated: true)
+            case 5, 30:
+                timerPicker.selectRow(2, inComponent: 0, animated: true)
+            default:
+                print(#function)
+            }
+            
+        } else {
+            
+            let time = timerId == "sessionDefaultsID" ? UserDefaultsManager.getDefaultSessionTime() : UserDefaultsManager.getDefaultBreakTime()
+            switch time {
+            case 3, 20:
+                timerPicker.selectRow(0, inComponent: 0, animated: true)
+            case 4, 25:
+                timerPicker.selectRow(1, inComponent: 0, animated: true)
+            case 5, 30:
+                timerPicker.selectRow(2, inComponent: 0, animated: true)
+            default:
+                print(#function)
+            }
+            
         }
     }
     
@@ -49,7 +67,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         switch timerId {
-        case "sessionID":
+        case "sessionID", "sessionDefaultsID":
             switch row {
             case 0:
                 return "20 minutes"
@@ -61,7 +79,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 return ""
             }
         
-        case "breakID":
+        case "breakID", "breakDefaultsID":
             switch row {
             case 0:
                 return "3 minutes"
@@ -101,6 +119,30 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 ketchup?.breakTime = 4
             case 2:
                 ketchup?.breakTime = 5
+            default:
+                return
+            }
+            
+        case "sessionDefaultsID":
+            switch row {
+            case 0:
+                UserDefaultsManager.getUserDefaults().setValue(20, forKey: "sessionTime")
+            case 1:
+                UserDefaultsManager.getUserDefaults().setValue(25, forKey: "sessionTime")
+            case 2:
+                UserDefaultsManager.getUserDefaults().setValue(30, forKey: "sessionTime")
+            default:
+                return
+            }
+            
+        case "breakDefaultsID":
+            switch row {
+            case 0:
+                UserDefaultsManager.getUserDefaults().setValue(3, forKey: "breakTime")
+            case 1:
+                UserDefaultsManager.getUserDefaults().setValue(4, forKey: "breakTime")
+            case 2:
+                UserDefaultsManager.getUserDefaults().setValue(5, forKey: "breakTime")
             default:
                 return
             }
