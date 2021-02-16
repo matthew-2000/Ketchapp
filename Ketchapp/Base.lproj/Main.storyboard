@@ -79,38 +79,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IX2-uM-tIA">
-                                <rect key="frame" x="0.0" y="88" width="414" height="705"/>
-                                <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQz-Mh-bT6">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="655"/>
-                                        <connections>
-                                            <segue destination="OXj-Ia-i01" kind="embed" identifier="tableSegue" id="bxl-9o-D92"/>
-                                        </connections>
-                                    </containerView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="pCE-2g-mbn">
-                                        <rect key="frame" x="0.0" y="675" width="414" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aR-jD-kU1">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
-                                                <state key="normal" title="Start now"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQz-Mh-bT6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <connections>
+                                    <segue destination="OXj-Ia-i01" kind="embed" identifier="tableSegue" id="bxl-9o-D92"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Un-EA-FTW"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IX2-uM-tIA" firstAttribute="top" secondItem="3Un-EA-FTW" secondAttribute="top" id="1qR-Ng-Xbl"/>
-                            <constraint firstAttribute="trailing" secondItem="IX2-uM-tIA" secondAttribute="trailing" id="LGq-4s-hYN"/>
-                            <constraint firstItem="3Un-EA-FTW" firstAttribute="bottom" secondItem="IX2-uM-tIA" secondAttribute="bottom" constant="20" id="Mve-Yt-hDt"/>
-                            <constraint firstItem="IX2-uM-tIA" firstAttribute="leading" secondItem="Zu4-oH-nk9" secondAttribute="leading" id="v7Y-Vt-tax"/>
+                            <constraint firstItem="OQz-Mh-bT6" firstAttribute="trailing" secondItem="3Un-EA-FTW" secondAttribute="trailing" id="EDh-e4-634"/>
+                            <constraint firstItem="OQz-Mh-bT6" firstAttribute="leading" secondItem="3Un-EA-FTW" secondAttribute="leading" id="Ehq-tC-bii"/>
+                            <constraint firstItem="3Un-EA-FTW" firstAttribute="bottom" secondItem="OQz-Mh-bT6" secondAttribute="bottom" id="a7k-wT-ca1"/>
+                            <constraint firstItem="OQz-Mh-bT6" firstAttribute="top" secondItem="3Un-EA-FTW" secondAttribute="top" id="wpa-2x-SGQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oio-hp-oE0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aOd-wc-qf3">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="aOd-wc-qf3">
                             <connections>
                                 <action selector="saveKetchupClick:" destination="Qga-Ps-jSE" id="ehO-0Y-Cdi"/>
                             </connections>
@@ -126,7 +112,7 @@
             <objects>
                 <tableViewController id="OXj-Ia-i01" customClass="DetailsKetchupTableViewController" customModule="Ketchapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ssp-Pm-imA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="655"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection headerTitle="Ketchup name" id="sU5-9G-FDo">
@@ -266,7 +252,7 @@
             <objects>
                 <tableViewController id="BhA-Px-vde" customClass="TasksTableViewController" customModule="Ketchapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tj2-j1-s03">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="601"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="671"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
