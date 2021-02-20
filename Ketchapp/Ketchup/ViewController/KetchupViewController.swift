@@ -26,6 +26,7 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        view.endEditing(true)
         if self.ketchup?.name.count == 0 {
             self.ketchup?.name = "New Activity"
         }
