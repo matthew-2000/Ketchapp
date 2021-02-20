@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 import AVFoundation
 
 class PomodoroTimerViewController: UIViewController {
@@ -29,6 +30,10 @@ class PomodoroTimerViewController: UIViewController {
         
     }
     
+    @IBAction func suono(_ sender: Any) {
+        AudioServicesPlaySystemSound(SystemSoundID(1304))
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         let alert = UIAlertController(title: "Are you ready?", message: "Put down the iPhone to start the session.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default , handler: nil))
@@ -39,7 +44,7 @@ class PomodoroTimerViewController: UIViewController {
         let task = ketchup.taskList[index]
         currentTaskLabel.text = task
         timeLabel.text = String(ketchup.sessionTime) + ":00"
-        seconds = ketchup.sessionTime * 60
+        seconds = 3
     }
     
     func setBreakTimer() {
@@ -58,7 +63,12 @@ class PomodoroTimerViewController: UIViewController {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(startCountdown), userInfo: nil, repeats: true)
         } else {
             //stop timer
-            timer.invalidate()
+            if isSession {
+                timer.invalidate()
+                let alert = UIAlertController(title: "Warning!", message: "Put down the phone and don't get distracted!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default , handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -84,6 +94,7 @@ class PomodoroTimerViewController: UIViewController {
         
         if isSession {
             //parte una pausa
+            
             if index == ketchup.getTaskCount() - 1 {
                 //termina sessione
                 let alert = UIAlertController(title: "Congratulations!", message: "You have successfully completed all tasks!", preferredStyle: .alert)

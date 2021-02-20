@@ -602,6 +602,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byA-4l-3Vh">
+                                <rect key="frame" x="167" y="206" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="suono:" destination="Flm-yb-kSb" eventType="touchUpInside" id="NWa-tl-p9x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v4Z-zW-Nqh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
