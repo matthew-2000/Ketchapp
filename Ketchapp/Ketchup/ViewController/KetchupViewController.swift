@@ -27,7 +27,7 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         if self.ketchup?.name.count == 0 {
-            self.ketchup?.name = "New Ketchup"
+            self.ketchup?.name = "New Activity"
         }
         PersistenceManager.deleteItem(withName: self.oldName)
         PersistenceManager.insertKetchup(ketchup: self.ketchup!)
@@ -37,11 +37,12 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
                 
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
+        alert.view.tintColor = Colors.getRed()
         alert.addAction(UIAlertAction(title: "Start now", style: .default , handler: { (UIAlertAction) in
             if self.ketchup?.getTaskCount() == 0 {
                 //nessun task nel ketchup selezionato
-                let alert = UIAlertController(title: "Warning!", message: "You can't start a ketchup without tasks!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Warning!", message: "You can't start an Activity without tasks!", preferredStyle: .alert)
+                alert.view.tintColor = Colors.getRed()
                 alert.addAction(UIKit.UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {

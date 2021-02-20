@@ -27,6 +27,7 @@
 		3BDB6CA725D6A0F90059B821 /* NameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CA625D6A0F90059B821 /* NameTableViewCell.swift */; };
 		3BDB6CB125D6D74E0059B821 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB6CB025D6D74E0059B821 /* TimerViewController.swift */; };
 		3BDDB7B225D7E49900A490C8 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDDB7B125D7E49900A490C8 /* TasksTableViewController.swift */; };
+		3BF5E74425E177A60018D974 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E74325E177A60018D974 /* Colors.swift */; };
 		DC0EFDE925E119D800D1FEAF /* PomodoroTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0EFDE825E119D800D1FEAF /* PomodoroTimerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		3BDB6CA625D6A0F90059B821 /* NameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTableViewCell.swift; sourceTree = "<group>"; };
 		3BDB6CB025D6D74E0059B821 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		3BDDB7B125D7E49900A490C8 /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
+		3BF5E74325E177A60018D974 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DC0EFDE825E119D800D1FEAF /* PomodoroTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 			children = (
 				3B1BEB7725D5B5AC000E0D43 /* PersistenceManager.swift */,
 				3B5D062F25DAFC3F00593ACF /* UserDefaultsManager.swift */,
+				3BF5E74325E177A60018D974 /* Colors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				3B1BEB7325D5B3B5000E0D43 /* Ketchup+CoreDataClass.swift in Sources */,
 				3B1BEB7825D5B5AC000E0D43 /* PersistenceManager.swift in Sources */,
 				3B1BEB7425D5B3B5000E0D43 /* Ketchup+CoreDataProperties.swift in Sources */,
+				3BF5E74425E177A60018D974 /* Colors.swift in Sources */,
 				3B6D601325D2DE1B00D7E997 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

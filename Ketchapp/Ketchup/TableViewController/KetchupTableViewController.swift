@@ -61,7 +61,7 @@ class KetchupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if ketchupList.count == 0 {
-            self.tableView.setEmptyMessage("Tap on '+' button to create a new Ketchup!")
+            self.tableView.setEmptyMessage("Tap on '+' button to create a new Activity!")
         } else {
             self.tableView.restore()
         }
@@ -77,7 +77,8 @@ class KetchupTableViewController: UITableViewController {
         cell.actionBlock = {
             if self.ketchupList[indexPath.row].getTaskCount() == 0 {
                 //nessun task nel ketchup selezionato
-                let alert = UIAlertController(title: "Warning!", message: "You can't start a ketchup without tasks!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Warning!", message: "You can't start an Activity without tasks!", preferredStyle: .alert)
+                alert.view.tintColor = Colors.getRed()
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 
@@ -115,10 +116,13 @@ class KetchupTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        alert.view.tintColor = Colors.getRed()
+        
         alert.addAction(UIAlertAction(title: "Start now", style: .default , handler: { (UIAlertAction) in
             if self.ketchupList[indexPath.row].getTaskCount() == 0 {
                 //nessun task nel ketchup selezionato
-                let alert = UIAlertController(title: "Warning!", message: "You can't start a ketchup without tasks!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Warning!", message: "You can't start an Activity without tasks!", preferredStyle: .alert)
+                alert.view.tintColor = Colors.getRed()
                 alert.addAction(UIKit.UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -131,7 +135,7 @@ class KetchupTableViewController: UITableViewController {
             
         }))
             
-        alert.addAction(UIAlertAction(title: "Edit ketchup", style: .default , handler: { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Edit Activity", style: .default , handler: { (UIAlertAction) in
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyBoard.instantiateViewController(withIdentifier: "KetchupViewControllerID") as! KetchupViewController
             vc.ketchup = self.ketchupList[indexPath.row]
@@ -175,7 +179,7 @@ class KetchupTableViewController: UITableViewController {
         switch segue.identifier {
         case "newKetchup":
             //create new ketchup
-            ketchupList.append(KetchupModel(name: "New Ketchup", sessionTime: UserDefaultsManager.getDefaultSessionTime(), breakTime: UserDefaultsManager.getDefaultBreakTime(), taskList: [String]()))
+            ketchupList.append(KetchupModel(name: "New Activity", sessionTime: UserDefaultsManager.getDefaultSessionTime(), breakTime: UserDefaultsManager.getDefaultBreakTime(), taskList: [String]()))
             let index = IndexPath(row: ketchupList.count - 1, section: 0)
             tableView.insertRows(at: [index], with: .automatic)
             let vc = segue.destination as! KetchupViewController

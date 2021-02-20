@@ -25,6 +25,7 @@ class TasksTableViewController: UITableViewController {
     @IBAction func addTask(_ sender: Any) {
         //Create the alert controller.
         let alert = UIAlertController(title: "New Task", message: "Enter the task name:", preferredStyle: .alert)
+        alert.view.tintColor = Colors.getRed()
 
         //Add the text field
         alert.addTextField { (textField) in
@@ -82,6 +83,7 @@ class TasksTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Create the alert controller.
         let alert = UIAlertController(title: "Edit task", message: "Enter new name:", preferredStyle: .alert)
+        alert.view.tintColor = Colors.getRed()
 
         //Add the text field
         alert.addTextField { (textField) in
