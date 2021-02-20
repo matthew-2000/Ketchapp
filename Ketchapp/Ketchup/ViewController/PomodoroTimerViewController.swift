@@ -43,7 +43,7 @@ class PomodoroTimerViewController: UIViewController {
     }
     
     func setBreakTimer() {
-        if (index + 1) % 4 == 0{
+        if (index + 1) % 4 == 0 {
             seconds = ketchup.sessionTime
         } else {
             seconds = ketchup.breakTime

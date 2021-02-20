@@ -31,12 +31,19 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Start now", style: .default , handler: { (UIAlertAction) in
-            //start ketchup
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyBoard.instantiateViewController(withIdentifier: "PomodoroTimerViewControllerID") as! PomodoroTimerViewController
-            vc.ketchup = self.ketchup
-            vc.isModalInPresentation = true
-            self.present(vc, animated: true, completion: nil)
+            if self.ketchup?.getTaskCount() == 0 {
+                //nessun task nel ketchup selezionato
+                let alert = UIAlertController(title: "Warning!", message: "You can't start a ketchup without tasks!", preferredStyle: .alert)
+                alert.addAction(UIKit.UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "PomodoroTimerViewControllerID") as! PomodoroTimerViewController
+                vc.ketchup = self.ketchup
+                vc.isModalInPresentation = true
+                self.present(vc, animated: true, completion: nil)
+            }
+            
         }))
             
         alert.addAction(UIAlertAction(title: "Save for later", style: .default , handler: { (UIAlertAction) in
