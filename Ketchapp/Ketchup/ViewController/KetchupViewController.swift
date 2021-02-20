@@ -36,6 +36,9 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
         }))
             
         alert.addAction(UIAlertAction(title: "Save for later", style: .default , handler: { (UIAlertAction) in
+            if self.ketchup?.name.count == 0 {
+                self.ketchup?.name = "New Ketchup"
+            }
             PersistenceManager.deleteItem(withName: self.oldName)
             PersistenceManager.insertKetchup(ketchup: self.ketchup!)
             self.navigationController?.popViewController(animated: true)
