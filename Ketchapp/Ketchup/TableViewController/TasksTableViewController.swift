@@ -35,7 +35,12 @@ class TasksTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             //add stuff to do here
-            self.ketchup.addTask(task: (textField?.text)!)
+            if textField?.text?.count == 0 {
+                self.ketchup.addTask(task: "New Task")
+            } else {
+                self.ketchup.addTask(task: (textField?.text)!)
+            }
+            
             let index = IndexPath(row: self.ketchup.getTaskCount() - 1, section: 0)
             self.tableView.insertRows(at: [index], with: .automatic)
         }))
@@ -87,7 +92,9 @@ class TasksTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             //add stuff to do here
-            self.ketchup.taskList[indexPath.row] = (textField?.text)!
+            if textField?.text?.count != 0 {
+                self.ketchup.taskList[indexPath.row] = (textField?.text)!
+            }
             self.tableView.reloadData()
         }))
         
