@@ -25,6 +25,14 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
         self.title = ketchup?.name
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if self.ketchup?.name.count == 0 {
+            self.ketchup?.name = "New Ketchup"
+        }
+        PersistenceManager.deleteItem(withName: self.oldName)
+        PersistenceManager.insertKetchup(ketchup: self.ketchup!)
+    }
+    
     @IBAction func saveKetchupClick(_ sender: Any) {
         view.endEditing(true)
                 
@@ -44,15 +52,6 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
                 self.present(vc, animated: true, completion: nil)
             }
             
-        }))
-            
-        alert.addAction(UIAlertAction(title: "Save for later", style: .default , handler: { (UIAlertAction) in
-            if self.ketchup?.name.count == 0 {
-                self.ketchup?.name = "New Ketchup"
-            }
-            PersistenceManager.deleteItem(withName: self.oldName)
-            PersistenceManager.insertKetchup(ketchup: self.ketchup!)
-            self.navigationController?.popViewController(animated: true)
         }))
             
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { (UIAlertAction) in

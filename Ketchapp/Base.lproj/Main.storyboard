@@ -95,7 +95,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oio-hp-oE0">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="aOd-wc-qf3">
+                        <barButtonItem key="rightBarButtonItem" title="Start" style="done" id="aOd-wc-qf3">
                             <connections>
                                 <action selector="saveKetchupClick:" destination="Qga-Ps-jSE" id="ehO-0Y-Cdi"/>
                             </connections>
