@@ -39,8 +39,7 @@ class PomodoroTimerViewController: UIViewController {
         let task = ketchup.taskList[index]
         currentTaskLabel.text = task
         timeLabel.text = String(ketchup.sessionTime) + ":00"
-        //seconds = ketchup.sessionTime * 60
-        seconds = 3
+        seconds = ketchup.sessionTime * 60
     }
     
     func setBreakTimer() {
