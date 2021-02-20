@@ -56,6 +56,12 @@ class TasksTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
+        if ketchup.getTaskCount() == 0 {
+            self.tableView.setEmptyMessage("Tap on '+' button to create a new Task!")
+        } else {
+            self.tableView.restore()
+        }
         return ketchup.getTaskCount()
     }
 
