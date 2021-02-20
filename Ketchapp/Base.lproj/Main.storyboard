@@ -44,7 +44,7 @@
                                                 <imageReference key="image" image="play" catalog="system" symbolScale="large"/>
                                             </state>
                                             <connections>
-                                                <segue destination="Flm-yb-kSb" kind="show" id="VYp-3M-ixb"/>
+                                                <action selector="startClick:" destination="FOD-wZ-3PB" eventType="touchUpInside" id="JZd-gs-Wj9"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -588,42 +588,43 @@
         <!--Pomodoro Timer View Controller-->
         <scene sceneID="GxV-de-zzL">
             <objects>
-                <viewController id="Flm-yb-kSb" customClass="PomodoroTimerViewController" customModule="Ketchapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PomodoroTimerViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Flm-yb-kSb" customClass="PomodoroTimerViewController" customModule="Ketchapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ju-WJ-F6R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time remaining:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e06-Z0-hJO">
-                                <rect key="frame" x="98" y="359" width="218" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task attuale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDd-fv-SxM">
-                                <rect key="frame" x="161" y="585" width="92" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Posa il cazzo di telefono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgB-Ey-sRb">
-                                <rect key="frame" x="116" y="228" width="183" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSI-cm-Tm3">
-                                <rect key="frame" x="149" y="418" width="131" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LSq-60-yVO">
+                                <rect key="frame" x="98" y="389" width="218" height="118.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time remaining:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e06-Z0-hJO">
+                                        <rect key="frame" x="0.0" y="0.0" width="218" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSI-cm-Tm3">
+                                        <rect key="frame" x="38.5" y="58.5" width="141" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task attuale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDd-fv-SxM">
+                                <rect key="frame" x="150" y="315" width="114" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v4Z-zW-Nqh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LSq-60-yVO" firstAttribute="centerX" secondItem="4ju-WJ-F6R" secondAttribute="centerX" id="Trj-a7-gVB"/>
+                            <constraint firstItem="LSq-60-yVO" firstAttribute="top" secondItem="QDd-fv-SxM" secondAttribute="bottom" constant="50" id="ViV-zs-B6C"/>
+                            <constraint firstItem="QDd-fv-SxM" firstAttribute="centerX" secondItem="4ju-WJ-F6R" secondAttribute="centerX" id="VzF-8X-Cex"/>
+                            <constraint firstItem="LSq-60-yVO" firstAttribute="centerY" secondItem="4ju-WJ-F6R" secondAttribute="centerY" id="jKb-pN-gvW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zgA-Xu-hEO"/>
                     <connections>
@@ -633,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ6-kS-NzA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2441" y="-581"/>
+            <point key="canvasLocation" x="2439.130434782609" y="-581.25"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

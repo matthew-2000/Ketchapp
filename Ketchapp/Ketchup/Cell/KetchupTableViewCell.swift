@@ -11,6 +11,8 @@ class KetchupTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nomeLabel: UILabel!
     @IBOutlet weak var taskCountLabel: UILabel!
+    var ketchup: KetchupModel!
+    var actionBlock: (() -> Void)? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +23,10 @@ class KetchupTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func startClick(_ sender: Any) {
+        actionBlock!()
     }
 
 }

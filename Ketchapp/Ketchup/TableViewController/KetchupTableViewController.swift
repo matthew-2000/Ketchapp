@@ -74,6 +74,13 @@ class KetchupTableViewController: UITableViewController {
         // Configure the cell...
         cell.nomeLabel.text = ketchupList[indexPath.row].name
         cell.taskCountLabel.text = String(ketchupList[indexPath.row].getTaskCount())
+        cell.actionBlock = {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "PomodoroTimerViewControllerID") as! PomodoroTimerViewController
+            vc.ketchup = self.ketchupList[indexPath.row]
+            vc.isModalInPresentation = true
+            self.present(vc, animated: true, completion: nil)
+        }
 
         return cell
     }
