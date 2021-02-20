@@ -36,7 +36,6 @@ class PomodoroTimerViewController: UIViewController {
         alert.view.tintColor = Colors.getRed()
         alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { _ in
             self.isReady = true
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.startCountdown), userInfo: nil, repeats: true)
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -149,14 +148,22 @@ class PomodoroTimerViewController: UIViewController {
       return ((seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func stopClick(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Don't do that!", message: "Try to finish all the tasks!", preferredStyle: .actionSheet)
+        alert.view.tintColor = Colors.getRed()
+        
+        let vc = self
+        alert.addAction(UIAlertAction(title: "I can't do it!", style: .destructive , handler: { _ in
+            vc.dismiss(animated: true, completion: nil)
+        }))
+            
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+            //dismiss
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
-    */
-
+    
 }
