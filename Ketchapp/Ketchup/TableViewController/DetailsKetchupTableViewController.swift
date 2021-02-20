@@ -51,14 +51,18 @@ class DetailsKetchupTableViewController: UITableViewController {
         //set session time cell
         let sessionTimerCell = tableView.cellForRow(at: IndexPath(row: 0, section: 1))
         sessionTimerCell?.detailTextLabel?.text = String(ketchup!.sessionTime) + " min"
+        sessionTimerCell?.imageView!.image = UIImage(named: "session")
         
         //set break time cell
         let breakTimerCell = tableView.cellForRow(at: IndexPath(row: 1, section: 1))
         breakTimerCell?.detailTextLabel?.text = String(ketchup!.breakTime)  + " min"
+        breakTimerCell?.imageView!.image = UIImage(named: "break")
 
         //set list tasks cell
         let taskListCell = tableView.cellForRow(at: IndexPath(row: 0, section: 2))
         taskListCell?.detailTextLabel?.text = String(ketchup!.getTaskCount())
+        taskListCell?.imageView!.image = UIImage(named: "taskList")
+
     }
 
     // MARK: - Table view data source

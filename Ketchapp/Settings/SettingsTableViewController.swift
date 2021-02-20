@@ -21,10 +21,12 @@ class SettingsTableViewController: UITableViewController {
         //set session time cell
         let sessionTimerCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         sessionTimerCell?.detailTextLabel?.text = String(UserDefaultsManager.getDefaultSessionTime()) + " min"
+        sessionTimerCell?.imageView!.image = UIImage(named: "session")
         
         //set break time cell
         let breakTimerCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0))
         breakTimerCell?.detailTextLabel?.text = String(UserDefaultsManager.getDefaultBreakTime())  + " min"
+        breakTimerCell?.imageView!.image = UIImage(named: "break")
 
     }
 
