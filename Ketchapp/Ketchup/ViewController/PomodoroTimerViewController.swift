@@ -19,6 +19,7 @@ class PomodoroTimerViewController: UIViewController {
     var seconds = 0
     var timer = Timer()
     var isSession = true
+    var isReady = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +31,11 @@ class PomodoroTimerViewController: UIViewController {
         
     }
     
-    @IBAction func suono(_ sender: Any) {
-        AudioServicesPlaySystemSound(SystemSoundID(1304))
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         let alert = UIAlertController(title: "Are you ready?", message: "Put down the iPhone to start the session.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default , handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { _ in
+            self.isReady = true
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -44,6 +43,14 @@ class PomodoroTimerViewController: UIViewController {
         let task = ketchup.taskList[index]
         currentTaskLabel.text = task
         timeLabel.text = String(ketchup.sessionTime) + ":00"
+        seconds = ketchup.sessionTime * 60
+        if index != 0 {
+            let alert = UIAlertController(title: "Next task: " + task, message: "Click OK and put down the iPhone to start the new session.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { _ in
+                self.isReady = true
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
         seconds = 3
     }
     
@@ -55,20 +62,33 @@ class PomodoroTimerViewController: UIViewController {
         }
         seconds *= 60
         currentTaskLabel.text = "Take a break!"
+        let alert = UIAlertController(title: "Good job!", message: "Click OK and take a break!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { _ in
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.startCountdown), userInfo: nil, repeats: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
+        seconds = 3
     }
     
     @objc func orientationChanged() {
-        if UIDevice.current.orientation == .faceDown || UIDevice.current.orientation == .faceUp {
-            //parte il timer
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(startCountdown), userInfo: nil, repeats: true)
-        } else {
-            //stop timer
-            if isSession {
+        if isSession {
+            
+            if UIDevice.current.orientation == .faceDown || UIDevice.current.orientation == .faceUp {
+                //parte il timer
+                
+                if isReady {
+                    timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(startCountdown), userInfo: nil, repeats: true)
+                }
+                
+            } else {
+                //stop timer
                 timer.invalidate()
                 let alert = UIAlertController(title: "Warning!", message: "Put down the phone and don't get distracted!", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default , handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+
+            
         }
     }
     
@@ -86,15 +106,18 @@ class PomodoroTimerViewController: UIViewController {
             
             
             //prossimo timer
+            timer.invalidate()
             nextTimer()
         }
     }
     
     func nextTimer() {
         
+        AudioServicesPlaySystemSound(SystemSoundID(1304))
+        
         if isSession {
             //parte una pausa
-            
+            isReady = false
             if index == ketchup.getTaskCount() - 1 {
                 //termina sessione
                 let alert = UIAlertController(title: "Congratulations!", message: "You have successfully completed all tasks!", preferredStyle: .alert)

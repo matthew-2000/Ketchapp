@@ -37,7 +37,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 1, 2:
-            return 1
+            return 0
         case 0:
             return 2
         default:
