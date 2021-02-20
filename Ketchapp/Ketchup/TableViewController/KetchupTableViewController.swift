@@ -112,6 +112,43 @@ class KetchupTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Start now", style: .default , handler: { (UIAlertAction) in
+            if self.ketchupList[indexPath.row].getTaskCount() == 0 {
+                //nessun task nel ketchup selezionato
+                let alert = UIAlertController(title: "Warning!", message: "You can't start a ketchup without tasks!", preferredStyle: .alert)
+                alert.addAction(UIKit.UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "PomodoroTimerViewControllerID") as! PomodoroTimerViewController
+                vc.ketchup = self.ketchupList[indexPath.row]
+                vc.isModalInPresentation = true
+                self.present(vc, animated: true, completion: nil)
+            }
+            
+        }))
+            
+        alert.addAction(UIAlertAction(title: "Edit ketchup", style: .default , handler: { (UIAlertAction) in
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "KetchupViewControllerID") as! KetchupViewController
+            vc.ketchup = self.ketchupList[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }))
+            
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { (UIAlertAction) in
+            //dismiss
+        }))
+
+        
+        //uncomment for iPad Support
+        //alert.popoverPresentationController?.sourceView = self.view
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -143,13 +180,6 @@ class KetchupTableViewController: UITableViewController {
             tableView.insertRows(at: [index], with: .automatic)
             let vc = segue.destination as! KetchupViewController
             vc.ketchup = ketchupList.last
-            
-        case "showKetchup":
-            //show selected ketchup
-            if let index = tableView.indexPathForSelectedRow?.row {
-                let vc = segue.destination as! KetchupViewController
-                vc.ketchup = ketchupList[index]
-            }
             
         default:
             return

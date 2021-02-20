@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,33 +36,20 @@
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B91-RU-9kK">
-                                            <rect key="frame" x="300" y="27" width="19" height="22"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <state key="normal">
-                                                <imageReference key="image" image="play" catalog="system" symbolScale="large"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="startClick:" destination="FOD-wZ-3PB" eventType="touchUpInside" id="JZd-gs-Wj9"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="AXN-iw-77W" secondAttribute="bottom" constant="15" id="1Wh-uO-xBr"/>
                                         <constraint firstItem="Y2k-cI-aWD" firstAttribute="centerY" secondItem="wSe-Xd-gZt" secondAttribute="centerY" id="7Mn-6B-g8Y"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Y2k-cI-aWD" secondAttribute="trailing" constant="20" id="PIv-nf-VZj"/>
-                                        <constraint firstItem="Y2k-cI-aWD" firstAttribute="leading" secondItem="B91-RU-9kK" secondAttribute="trailing" constant="25" id="Rdh-cb-hcA"/>
                                         <constraint firstItem="AXN-iw-77W" firstAttribute="leading" secondItem="wSe-Xd-gZt" secondAttribute="leadingMargin" id="ZyP-X8-f7g"/>
                                         <constraint firstItem="Y2k-cI-aWD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AXN-iw-77W" secondAttribute="trailing" constant="8" symbolic="YES" id="ftj-CV-dXq"/>
                                         <constraint firstItem="AXN-iw-77W" firstAttribute="top" secondItem="wSe-Xd-gZt" secondAttribute="topMargin" constant="15" id="t3H-58-ehh"/>
-                                        <constraint firstItem="B91-RU-9kK" firstAttribute="centerY" secondItem="wSe-Xd-gZt" secondAttribute="centerY" id="zSW-a3-Ma9"/>
                                         <constraint firstItem="AXN-iw-77W" firstAttribute="width" secondItem="wSe-Xd-gZt" secondAttribute="width" multiplier="0.7" id="zyR-TJ-x9R"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nomeLabel" destination="AXN-iw-77W" id="Q3e-AU-j3w"/>
                                     <outlet property="taskCountLabel" destination="Y2k-cI-aWD" id="iJ5-ht-uRU"/>
-                                    <segue destination="Qga-Ps-jSE" kind="show" identifier="showKetchup" id="5UQ-eL-eeQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -87,7 +73,7 @@
         <!--Ketchup View Controller-->
         <scene sceneID="eO2-eG-4bi">
             <objects>
-                <viewController id="Qga-Ps-jSE" customClass="KetchupViewController" customModule="Ketchapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KetchupViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qga-Ps-jSE" customClass="KetchupViewController" customModule="Ketchapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zu4-oH-nk9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -639,12 +625,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="lSo-zg-H4B"/>
-        <segue reference="5UQ-eL-eeQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
-        <image name="play" catalog="system" width="120" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <image name="timer" catalog="system" width="128" height="121"/>
