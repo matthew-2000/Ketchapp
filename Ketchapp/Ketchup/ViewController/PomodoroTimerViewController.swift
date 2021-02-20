@@ -35,6 +35,7 @@ class PomodoroTimerViewController: UIViewController {
         let alert = UIAlertController(title: "Are you ready?", message: "Put down the iPhone to start the session.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { _ in
             self.isReady = true
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.startCountdown), userInfo: nil, repeats: true)
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -48,10 +49,12 @@ class PomodoroTimerViewController: UIViewController {
             let alert = UIAlertController(title: "Next task: " + task, message: "Click OK and put down the iPhone to start the new session.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { _ in
                 self.isReady = true
+                if UIDevice.current.orientation == .faceDown || UIDevice.current.orientation == .faceUp {
+                    self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.startCountdown), userInfo: nil, repeats: true)
+                }
             }))
             self.present(alert, animated: true, completion: nil)
         }
-        seconds = 3
     }
     
     func setBreakTimer() {
@@ -67,7 +70,6 @@ class PomodoroTimerViewController: UIViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.startCountdown), userInfo: nil, repeats: true)
         }))
         self.present(alert, animated: true, completion: nil)
-        seconds = 3
     }
     
     @objc func orientationChanged() {
