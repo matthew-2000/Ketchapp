@@ -45,6 +45,7 @@ class PomodoroTimerViewController: UIViewController {
         currentTaskLabel.text = task
         timeLabel.text = String(ketchup.sessionTime) + ":00"
         seconds = ketchup.sessionTime * 60
+//        seconds = 5
         if index != 0 {
             let alert = UIAlertController(title: "Next task: " + task, message: "Click OK and put down the iPhone to start the new session.", preferredStyle: .alert)
             alert.view.tintColor = Colors.getRed()
@@ -107,9 +108,6 @@ class PomodoroTimerViewController: UIViewController {
         timeLabel.text = String(m) + ":" + string + String(s)
         
         if seconds == 0 {
-            //suona il telefono
-            
-            
             //prossimo timer
             timer.invalidate()
             nextTimer()
@@ -125,6 +123,7 @@ class PomodoroTimerViewController: UIViewController {
             isReady = false
             if index == ketchup.getTaskCount() - 1 {
                 //termina sessione
+                PersistenceManager.deleteItem(item: self.ketchup)
                 let alert = UIAlertController(title: "Congratulations!", message: "You have successfully completed all tasks!", preferredStyle: .alert)
                 alert.view.tintColor = Colors.getRed()
                 let vc = self

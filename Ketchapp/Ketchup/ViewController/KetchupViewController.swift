@@ -17,6 +17,9 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         self.title = ketchup?.name
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         oldName = ketchup?.name
     }
     
