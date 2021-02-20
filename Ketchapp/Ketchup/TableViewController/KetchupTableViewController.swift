@@ -62,6 +62,7 @@ class KetchupTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if ketchupList.count == 0 {
             self.tableView.setEmptyMessage("Tap on '+' button to create a new Activity!")
+            
         } else {
             self.tableView.restore()
         }
@@ -198,7 +199,7 @@ extension UITableView {
     func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         messageLabel.text = message
-        messageLabel.textColor = .black
+        messageLabel.textColor = Colors.getRed()
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         messageLabel.sizeToFit()
