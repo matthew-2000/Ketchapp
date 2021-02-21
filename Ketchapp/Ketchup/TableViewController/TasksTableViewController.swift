@@ -26,7 +26,6 @@ class TasksTableViewController: UITableViewController {
         
         if ketchup.getTaskCount() == 8 {
             //avviso
-            print("pluto")
             let alert = UIAlertController(title: "Warning!", message: "This Activity is already long enough, we recommend you to create a new one.", preferredStyle: .alert)
             alert.view.tintColor = Colors.getRed()
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
