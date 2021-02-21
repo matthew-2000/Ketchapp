@@ -341,35 +341,6 @@
             </objects>
             <point key="canvasLocation" x="3970" y="-156"/>
         </scene>
-        <!--Completed-->
-        <scene sceneID="NO0-LV-Tcb">
-            <objects>
-                <tableViewController id="1uW-kC-sbJ" customClass="CompletedTableViewController" customModule="Ketchapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kgu-do-4QU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cbI-9B-j1h">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cbI-9B-j1h" id="dDc-US-mdw">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1uW-kC-sbJ" id="MeV-a6-ZDT"/>
-                            <outlet property="delegate" destination="1uW-kC-sbJ" id="ctT-jd-5Re"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Completed" id="joE-0n-RFy"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Spy-0Y-6zz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1650.7246376811595" y="793.52678571428567"/>
-        </scene>
         <!--Activities-->
         <scene sceneID="MJG-hn-PFS">
             <objects>
@@ -512,26 +483,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jrn-Dt-fc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1651" y="1523"/>
-        </scene>
-        <!--Completed-->
-        <scene sceneID="K13-AJ-KnK">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ypE-xK-x5z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Completed" image="list.dash" catalog="system" id="5Ug-cf-cxA"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fnn-ja-5n7">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1uW-kC-sbJ" kind="relationship" relationship="rootViewController" id="gG3-mE-g8C"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vOj-aj-mlB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="839.13043478260875" y="793.52678571428567"/>
+            <point key="canvasLocation" x="1651" y="794"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tE3-FC-Nyd">
@@ -546,13 +498,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="0G7-z2-7ay" kind="relationship" relationship="viewControllers" id="3BL-Yc-dHM"/>
-                        <segue destination="ypE-xK-x5z" kind="relationship" relationship="viewControllers" id="z7k-04-0Vc"/>
                         <segue destination="UIR-xS-y8l" kind="relationship" relationship="viewControllers" id="NK2-Ei-aSX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfB-6a-VRa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-146" y="794"/>
+            <point key="canvasLocation" x="-46" y="794"/>
         </scene>
         <!--Settings-->
         <scene sceneID="6Sz-qf-dbt">
@@ -571,7 +522,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kuf-bb-q70" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="1523"/>
+            <point key="canvasLocation" x="838" y="794"/>
         </scene>
         <!--Pomodoro Timer View Controller-->
         <scene sceneID="GxV-de-zzL">
@@ -644,7 +595,6 @@
     <color key="tintColor" red="0.78039215689999997" green="0.25882352939999997" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <image name="timer" catalog="system" width="128" height="121"/>

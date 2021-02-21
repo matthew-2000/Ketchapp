@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3B1BEB6025D59FCF000E0D43 /* KetchupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1BEB5F25D59FCF000E0D43 /* KetchupTableViewController.swift */; };
-		3B1BEB6325D5A0F3000E0D43 /* CompletedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1BEB6225D5A0F3000E0D43 /* CompletedTableViewController.swift */; };
 		3B1BEB6A25D5A69B000E0D43 /* KetchupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1BEB6925D5A69B000E0D43 /* KetchupTableViewCell.swift */; };
 		3B1BEB7325D5B3B5000E0D43 /* Ketchup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1BEB7125D5B3B5000E0D43 /* Ketchup+CoreDataClass.swift */; };
 		3B1BEB7425D5B3B5000E0D43 /* Ketchup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1BEB7225D5B3B5000E0D43 /* Ketchup+CoreDataProperties.swift */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		3B1BEB5F25D59FCF000E0D43 /* KetchupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KetchupTableViewController.swift; sourceTree = "<group>"; };
-		3B1BEB6225D5A0F3000E0D43 /* CompletedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTableViewController.swift; sourceTree = "<group>"; };
 		3B1BEB6925D5A69B000E0D43 /* KetchupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KetchupTableViewCell.swift; sourceTree = "<group>"; };
 		3B1BEB7125D5B3B5000E0D43 /* Ketchup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Ketchup+CoreDataClass.swift"; path = "Ketchapp/Ketchup/Model/Ketchup+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		3B1BEB7225D5B3B5000E0D43 /* Ketchup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Ketchup+CoreDataProperties.swift"; path = "Ketchapp/Ketchup/Model/Ketchup+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -80,14 +78,6 @@
 			path = Ketchup;
 			sourceTree = "<group>";
 		};
-		3B1BEB6F25D5AFC5000E0D43 /* Completed */ = {
-			isa = PBXGroup;
-			children = (
-				3B1BEB6225D5A0F3000E0D43 /* CompletedTableViewController.swift */,
-			);
-			path = Completed;
-			sourceTree = "<group>";
-		};
 		3B5D062E25DAFC2400593ACF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +109,6 @@
 			children = (
 				3BAD5E2225DBD9AD00C6505A /* Settings */,
 				3B5D062E25DAFC2400593ACF /* Utils */,
-				3B1BEB6F25D5AFC5000E0D43 /* Completed */,
 				3B1BEB6725D5A661000E0D43 /* Ketchup */,
 				3B6D601025D2DE1B00D7E997 /* AppDelegate.swift */,
 				3B6D601225D2DE1B00D7E997 /* SceneDelegate.swift */,
@@ -251,7 +240,6 @@
 			files = (
 				3B4573AF25D685CA007D5D9F /* KetchupViewController.swift in Sources */,
 				3B1BEB6025D59FCF000E0D43 /* KetchupTableViewController.swift in Sources */,
-				3B1BEB6325D5A0F3000E0D43 /* CompletedTableViewController.swift in Sources */,
 				3BDB6CB125D6D74E0059B821 /* TimerViewController.swift in Sources */,
 				3BDB6CA725D6A0F90059B821 /* NameTableViewCell.swift in Sources */,
 				3B6D601B25D2DE1B00D7E997 /* Ketchapp.xcdatamodeld in Sources */,
