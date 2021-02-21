@@ -105,4 +105,14 @@ class PersistenceManager {
         saveContext()
     }
     
+    static func findItem(withName name: String?) -> Bool {
+        let ketchupList = fetchKetchup()
+        for ketchup in ketchupList {
+            if ketchup.name == name {
+                return true
+            }
+        }
+        return false
+    }
+    
 }
