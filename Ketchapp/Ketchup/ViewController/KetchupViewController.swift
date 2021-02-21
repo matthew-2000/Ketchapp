@@ -35,23 +35,6 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
             self.ketchup?.name = "Quick Activity"
         }
         
-//        if PersistenceManager.findItem(withName: self.ketchup!.name) {
-//            print("pippo")
-//            let alert = UIAlertController(title: "This Activity already exists!", message: "An Activity with this name already exists, please choose a different name:", preferredStyle: .alert)
-//            alert.view.tintColor = Colors.getRed()
-//            alert.addTextField { (textField) in
-//                textField.text = self.ketchup!.name
-//            }
-//            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: {
-//                [weak alert] (_) in
-//                let textField = alert?.textFields![0]
-//                self.ketchup!.name = (textField?.text)!
-//                print("pippo")
-//            }))
-//            self.present(alert, animated: true, completion: nil)
-//            print("pippo")
-//        }
-        
         PersistenceManager.deleteItem(withName: self.ketchup!.name)
         PersistenceManager.deleteItem(withName: self.oldName)
         PersistenceManager.insertKetchup(ketchup: self.ketchup!)
