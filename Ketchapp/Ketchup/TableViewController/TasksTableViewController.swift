@@ -23,6 +23,23 @@ class TasksTableViewController: UITableViewController {
     }
     
     @IBAction func addTask(_ sender: Any) {
+        
+        if ketchup.getTaskCount() == 8 {
+            //avviso
+            print("pluto")
+            let alert = UIAlertController(title: "Warning!", message: "This Activity is already long enough, we recommend you to create a new one.", preferredStyle: .alert)
+            alert.view.tintColor = Colors.getRed()
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+                self.showTextField()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        showTextField()
+        
+    }
+    
+    func showTextField() {
         //Create the alert controller.
         let alert = UIAlertController(title: "New Task", message: "Enter the task name:", preferredStyle: .alert)
         alert.view.tintColor = Colors.getRed()
