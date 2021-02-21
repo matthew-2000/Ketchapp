@@ -16,7 +16,7 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = ketchup?.name
+        self.title = ketchup?.name == "" ? "New Activity" : ketchup?.name
     }
     
     override func viewDidAppear(_ animated: Bool) {

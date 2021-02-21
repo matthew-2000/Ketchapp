@@ -171,7 +171,7 @@ class KetchupTableViewController: UITableViewController {
         switch segue.identifier {
         case "newKetchup":
             //create new ketchup
-            ketchupList.append(KetchupModel(name: "New Activity", sessionTime: UserDefaultsManager.getDefaultSessionTime(), breakTime: UserDefaultsManager.getDefaultBreakTime(), taskList: [String]()))
+            ketchupList.append(KetchupModel(name: "", sessionTime: UserDefaultsManager.getDefaultSessionTime(), breakTime: UserDefaultsManager.getDefaultBreakTime(), taskList: [String]()))
             let index = IndexPath(row: ketchupList.count - 1, section: 0)
             tableView.insertRows(at: [index], with: .automatic)
             let vc = segue.destination as! KetchupViewController
