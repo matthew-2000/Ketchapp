@@ -151,11 +151,11 @@ class PomodoroTimerViewController: UIViewController {
     
     @IBAction func stopClick(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Don't do that!", message: "Try to finish all the tasks!", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Are you sure?", message: "You should finish all the tasks.", preferredStyle: .actionSheet)
         alert.view.tintColor = Colors.getRed()
         
         let vc = self
-        alert.addAction(UIAlertAction(title: "I can't do it!", style: .destructive , handler: { _ in
+        alert.addAction(UIAlertAction(title: "Stop Activity", style: .destructive , handler: { _ in
             vc.dismiss(animated: true, completion: nil)
         }))
             
