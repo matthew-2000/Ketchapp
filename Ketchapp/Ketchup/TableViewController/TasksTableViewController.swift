@@ -104,6 +104,9 @@ class TasksTableViewController: UITableViewController {
         //Add the text field
         alert.addTextField { (textField) in
             textField.placeholder = "Task name"
+            if self.ketchup.taskList[indexPath.row] != "" {
+                textField.text = self.ketchup.taskList[indexPath.row]
+            }
         }
 
         //add alert action
