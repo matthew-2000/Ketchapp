@@ -25,7 +25,7 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         ketchup?.name = textField.text!
-        self.title = ketchup?.name
+        self.title = ketchup?.name == "" ? "Quick Activity" : ketchup?.name
     }
     
     override func viewWillDisappear(_ animated: Bool) {
