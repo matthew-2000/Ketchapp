@@ -45,7 +45,7 @@ class PomodoroTimerViewController: UIViewController {
         currentTaskLabel.text = task
         timeLabel.text = String(ketchup.sessionTime) + ":00"
         seconds = ketchup.sessionTime * 60
-//        seconds = 50
+//        seconds = 10
         if index != 0 {
             let alert = UIAlertController(title: "Next task: " + task, message: "Click OK and put down the iPhone to start the new session.", preferredStyle: .alert)
             alert.view.tintColor = Colors.getRed()
@@ -67,7 +67,7 @@ class PomodoroTimerViewController: UIViewController {
         }
         seconds *= 60
 //        seconds = 5
-        currentTaskLabel.text = "Take a break!"
+        currentTaskLabel.text = "Relax"
         let alert = UIAlertController(title: "Good job!", message: "Click OK and take a break!", preferredStyle: .alert)
         alert.view.tintColor = Colors.getRed()
         alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { _ in
