@@ -54,7 +54,8 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
                 let vc = storyBoard.instantiateViewController(withIdentifier: "PomodoroTimerViewControllerID") as! PomodoroTimerViewController
                 vc.ketchup = self.ketchup
                 vc.isModalInPresentation = true
-                self.present(vc, animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
+                self.parent!.present(vc, animated: true, completion: nil)
             }
             
         }))
