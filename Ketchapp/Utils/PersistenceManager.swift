@@ -66,6 +66,17 @@ class PersistenceManager {
         
     }
     
+    static func getKetchupList() -> [KetchupModel] {
+        let ketchupListPersistent = PersistenceManager.fetchKetchup()
+        var ketchupList = [KetchupModel]()
+        
+        for k in ketchupListPersistent {
+            ketchupList.append(KetchupModel(name: k.name!, sessionTime: Int(k.sessionTime), breakTime: Int(k.breakTime), taskList: k.taskList!))
+        }
+        
+        return ketchupList
+    }
+    
     static func deleteItem(item: KetchupModel) {
         let context = getContext()
         

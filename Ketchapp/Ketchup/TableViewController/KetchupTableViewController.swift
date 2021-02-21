@@ -27,8 +27,7 @@ class KetchupTableViewController: UITableViewController {
         }
         //finish setting UserDefaults
         
-        ketchupList = [KetchupModel]()
-        getFromCoreData()
+        ketchupList = PersistenceManager.getKetchupList()
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
 
         // Uncomment the following line to preserve selection between presentations
@@ -41,24 +40,14 @@ class KetchupTableViewController: UITableViewController {
     @objc func loadList(notification: NSNotification){
         //load data here
         ketchupList.removeAll()
-        getFromCoreData()
+        ketchupList = PersistenceManager.getKetchupList()
         self.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         ketchupList.removeAll()
-        getFromCoreData()
+        ketchupList = PersistenceManager.getKetchupList()
         tableView.reloadData()
-    }
-    
-    func getFromCoreData() {
-        
-        let ketchupListPersistent = PersistenceManager.fetchKetchup()
-        
-        for k in ketchupListPersistent {
-            ketchupList.append(KetchupModel(name: k.name!, sessionTime: Int(k.sessionTime), breakTime: Int(k.breakTime), taskList: k.taskList!))
-        }
-        
     }
     
     // MARK: - Table view data source
