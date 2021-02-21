@@ -124,6 +124,8 @@ class PomodoroTimerViewController: UIViewController {
             if index == ketchup.getTaskCount() - 1 {
                 //termina sessione
                 PersistenceManager.deleteItem(item: self.ketchup)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                
                 let alert = UIAlertController(title: "Congratulations!", message: "You have successfully completed all tasks!", preferredStyle: .alert)
                 alert.view.tintColor = Colors.getRed()
                 let vc = self

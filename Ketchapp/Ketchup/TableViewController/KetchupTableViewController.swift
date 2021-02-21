@@ -29,12 +29,20 @@ class KetchupTableViewController: UITableViewController {
         
         ketchupList = [KetchupModel]()
         getFromCoreData()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         //display an Edit button in the navigation bar for this view controller
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+    }
+    
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        ketchupList.removeAll()
+        getFromCoreData()
+        self.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
