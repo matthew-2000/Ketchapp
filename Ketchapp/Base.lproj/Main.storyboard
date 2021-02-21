@@ -599,8 +599,8 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task attuale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDd-fv-SxM">
-                                <rect key="frame" x="150" y="315" width="114" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <rect key="frame" x="109" y="197" width="196" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -621,7 +621,7 @@
                         <constraints>
                             <constraint firstItem="cTE-mU-Rzy" firstAttribute="centerX" secondItem="4ju-WJ-F6R" secondAttribute="centerX" id="6Yz-Ix-JbY"/>
                             <constraint firstItem="LSq-60-yVO" firstAttribute="centerX" secondItem="4ju-WJ-F6R" secondAttribute="centerX" id="Trj-a7-gVB"/>
-                            <constraint firstItem="LSq-60-yVO" firstAttribute="top" secondItem="QDd-fv-SxM" secondAttribute="bottom" constant="50" id="ViV-zs-B6C"/>
+                            <constraint firstItem="LSq-60-yVO" firstAttribute="top" secondItem="QDd-fv-SxM" secondAttribute="bottom" constant="150" id="ViV-zs-B6C"/>
                             <constraint firstItem="QDd-fv-SxM" firstAttribute="centerX" secondItem="4ju-WJ-F6R" secondAttribute="centerX" id="VzF-8X-Cex"/>
                             <constraint firstItem="v4Z-zW-Nqh" firstAttribute="bottom" secondItem="cTE-mU-Rzy" secondAttribute="bottom" constant="20" id="evD-NA-L2Y"/>
                             <constraint firstItem="LSq-60-yVO" firstAttribute="centerY" secondItem="4ju-WJ-F6R" secondAttribute="centerY" id="jKb-pN-gvW"/>
