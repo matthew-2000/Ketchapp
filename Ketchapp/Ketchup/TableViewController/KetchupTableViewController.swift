@@ -99,7 +99,7 @@ class KetchupTableViewController: UITableViewController {
         
         alert.view.tintColor = Colors.getRed()
         
-        alert.addAction(UIAlertAction(title: "Start now", style: .default , handler: { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Start Activity", style: .default , handler: { (UIAlertAction) in
             if self.ketchupList[indexPath.row].getTaskCount() == 0 {
                 //nessun task nel ketchup selezionato
                 let alert = UIAlertController(title: "Warning!", message: "You can't start an Activity without tasks!", preferredStyle: .alert)

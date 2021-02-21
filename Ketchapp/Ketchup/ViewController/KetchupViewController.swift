@@ -30,9 +30,12 @@ class KetchupViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         view.endEditing(true)
+        
         if self.ketchup?.name.count == 0 {
-            self.ketchup?.name = "New Activity"
+            self.ketchup?.name = "Quick Activity"
         }
+        
+        PersistenceManager.deleteItem(withName: self.ketchup!.name)
         PersistenceManager.deleteItem(withName: self.oldName)
         PersistenceManager.insertKetchup(ketchup: self.ketchup!)
     }
