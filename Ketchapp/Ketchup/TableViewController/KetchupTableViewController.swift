@@ -83,23 +83,6 @@ class KetchupTableViewController: UITableViewController {
         // Configure the cell...
         cell.nomeLabel.text = ketchupList[indexPath.row].name
         cell.taskCountLabel.text = String(ketchupList[indexPath.row].getTaskCount())
-        cell.actionBlock = {
-            if self.ketchupList[indexPath.row].getTaskCount() == 0 {
-                //nessun task nel ketchup selezionato
-                let alert = UIAlertController(title: "Warning!", message: "You can't start an Activity without tasks!", preferredStyle: .alert)
-                alert.view.tintColor = Colors.getRed()
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                
-            } else {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyBoard.instantiateViewController(withIdentifier: "PomodoroTimerViewControllerID") as! PomodoroTimerViewController
-                vc.ketchup = self.ketchupList[indexPath.row]
-                vc.isModalInPresentation = true
-                self.present(vc, animated: true, completion: nil)
-            }
-            
-        }
 
         return cell
     }
