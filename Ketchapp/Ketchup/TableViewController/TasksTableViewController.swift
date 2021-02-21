@@ -98,7 +98,7 @@ class TasksTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Create the alert controller.
-        let alert = UIAlertController(title: "Edit task", message: "Enter new name:", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Edit Task", message: "Enter new name:", preferredStyle: .alert)
         alert.view.tintColor = Colors.getRed()
 
         //Add the text field
